@@ -255,7 +255,18 @@ class Upgrader with WidgetsBindingObserver {
         country: country,
         language: language);
 
-    updateState(state.copyWith(versionInfo: versionInfo));
+    bool isBigUpdate = false;
+
+    if ((versionInfo.appStoreVersion?.major != installedVersion.major) ||
+        (versionInfo.appStoreVersion?.minor != installedVersion.minor)) {
+      isBigUpdate = true;
+      if (state.debugLogging) {
+        print('upgrader: bigUpdate: true');
+      }
+    }
+
+    updateState(
+        state.copyWith(versionInfo: versionInfo, bigUpdate: isBigUpdate));
 
     return versionInfo;
   }

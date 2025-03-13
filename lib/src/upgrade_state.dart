@@ -19,6 +19,7 @@ class UpgraderState {
     this.debugDisplayAlways = false,
     this.debugDisplayOnce = false,
     this.debugLogging = false,
+    this.bigUpdate = false,
     this.durationUntilAlertAgain = const Duration(days: 3),
     this.languageCodeOverride,
     this.messages,
@@ -46,6 +47,9 @@ class UpgraderState {
 
   /// Enable print statements for debugging.
   final bool debugLogging;
+
+  /// Big Update
+  final bool bigUpdate;
 
   /// Duration until alerting user again.
   final Duration durationUntilAlertAgain;
@@ -83,6 +87,7 @@ class UpgraderState {
     bool? debugDisplayAlways,
     bool? debugDisplayOnce,
     bool? debugLogging,
+    bool? bigUpdate,
     Duration? durationUntilAlertAgain,
     String? languageCodeOverride,
     UpgraderMessages? messages,
@@ -99,6 +104,7 @@ class UpgraderState {
       debugDisplayAlways: debugDisplayAlways ?? this.debugDisplayAlways,
       debugDisplayOnce: debugDisplayOnce ?? this.debugDisplayOnce,
       debugLogging: debugLogging ?? this.debugLogging,
+      bigUpdate: bigUpdate ?? this.bigUpdate,
       durationUntilAlertAgain:
           durationUntilAlertAgain ?? this.durationUntilAlertAgain,
       languageCodeOverride: languageCodeOverride ?? this.languageCodeOverride,
